@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Nexus | Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        base: '#111322',      
+                        surface: '#1a1c31',   
+                        borderline: '#282b45',
+                        accent: {
+                            purple: '#a855f7',
+                            blue: '#3b82f6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-base text-slate-300 h-screen w-screen overflow-hidden flex flex-col font-sans selection:bg-accent-purple selection:text-white">
+
+    <header class="h-20 border-b border-borderline bg-surface/50 backdrop-blur-md flex items-center justify-between px-8 shrink-0">
+        <div>
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent tracking-tight">
+                NEON NEXUS
+            </h1>
+            <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">The Architecture of Thought</p>
+        </div>
+        <button class="px-6 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-sm font-semibold text-white transition-all duration-200">
+            Dashboard
+        </button>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        
+        <aside class="w-80 border-r border-borderline bg-surface/30 flex flex-col shrink-0">
+            <div class="p-4 border-b border-borderline">
+                <div class="bg-white/5 rounded-lg p-1 flex">
+                    <button class="flex-1 bg-white/10 text-white shadow-sm rounded-md py-1.5 text-xs font-semibold">Pinned Systems</button>
+                    <button class="flex-1 text-slate-400 hover:text-slate-200 rounded-md py-1.5 text-xs font-semibold transition-colors">All Modules</button>
+                </div>
+            </div>
+            
+            <ul id="prompt-list" class="flex-1 overflow-y-auto p-4 space-y-3">
+                </ul>
+        </aside>
+
+        <main class="flex-1 flex flex-col p-6 bg-base overflow-hidden relative">
+            
+            <div class="mb-6 bg-surface border border-borderline rounded-xl p-4 flex items-center justify-between shadow-lg shrink-0">
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active Pipeline</div>
+                <div class="flex items-center space-x-4">
+                    <div class="pipeline-step flex items-center space-x-2 text-slate-500" id="step-omni">
+                        <span class="text-lg">🧠</span><span class="text-sm font-medium">Omni</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-borderline"></div>
+                    <div class="pipeline-step flex items-center space-x-2 text-slate-500" id="step-crawl">
+                        <span class="text-lg">🕷️</span><span class="text-sm font-medium">Context</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-borderline"></div>
+                    <div class="pipeline-step flex items-center space-x-2 text-slate-500" id="step-engineer">
+                        <span class="text-lg">⚙️</span><span class="text-sm font-medium">Engineer</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-borderline"></div>
+                    <div class="pipeline-step flex items-center space-x-2 text-slate-500" id="step-architect">
+                        <span class="text-lg">🏗️</span><span class="text-sm font-medium">Architect</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="flex-1 flex flex-col bg-surface border border-borderline rounded-2xl shadow-2xl overflow-hidden relative">
+                <header class="flex items-center justify-between px-6 py-4 border-b border-borderline bg-[#16182a] shrink-0">
+                    <div class="flex items-center space-x-3">
+                        <div class="flex space-x-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        </div>
+                        <h2 id="prompt-title" class="text-lg font-semibold text-slate-200 ml-4">System Idle</h2>
+                    </div>
+                    <button id="copy-btn" class="hidden flex items-center space-x-2 px-4 py-2 bg-accent-blue/10 hover:bg-accent-blue/20 text-accent-blue border border-accent-blue/30 rounded-lg text-sm font-medium transition-all">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <span>Copy Payload</span>
+                    </button>
+                </header>
+                
+                <div class="flex-1 overflow-y-auto p-6 relative">
+                    
+                    <div id="welcome-dashboard" class="w-full h-full flex flex-col items-center justify-center space-y-10 animate-fade-in pb-10">
+                        <div class="text-center space-y-2">
+                            <h3 class="text-2xl font-bold text-slate-100 tracking-tight">Select a module to initialize data stream</h3>
+                            <p class="text-slate-400 text-sm">Or review the operational architecture schemas below.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+                            
+                            <div class="bg-[#111322] border border-borderline rounded-xl p-6 relative overflow-hidden group">
+                                <div class="absolute top-0 left-0 w-full h-1 bg-accent-purple/40 group-hover:bg-accent-purple transition-colors duration-300"></div>
+                                <div class="text-3xl mb-4">🧠</div>
+                                <h4 class="text-md font-semibold text-slate-200 mb-2">Genesis Workflow</h4>
+                                <p class="text-xs text-slate-400 mb-5 leading-relaxed">Making new features. Initialize the Omni-Architect to build applications from a vague idea using a Zero-Cost Stack.</p>
+                                <div class="flex items-center space-x-3 text-[11px] font-mono font-medium text-accent-purple bg-accent-purple/5 px-3 py-2 rounded-lg border border-accent-purple/10">
+                                    <span>Idea</span>
+                                    <span class="text-slate-600">→</span>
+                                    <span>The Omni</span>
+                                    <span class="text-slate-600">→</span>
+                                    <span>Full Stack</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-[#111322] border border-borderline rounded-xl p-6 relative overflow-hidden group">
+                                <div class="absolute top-0 left-0 w-full h-1 bg-accent-blue/40 group-hover:bg-accent-blue transition-colors duration-300"></div>
+                                <div class="text-3xl mb-4">🏗️</div>
+                                <h4 class="text-md font-semibold text-slate-200 mb-2">Mutation Workflow</h4>
+                                <p class="text-xs text-slate-400 mb-5 leading-relaxed">Editing existing features. Utilize Crawler software to ingest context, then let the Architect guide strict file-by-file updates.</p>
+                                <div class="flex items-center space-x-3 text-[11px] font-mono font-medium text-accent-blue bg-accent-blue/5 px-3 py-2 rounded-lg border border-accent-blue/10">
+                                    <span>Crawler</span>
+                                    <span class="text-slate-600">→</span>
+                                    <span>Architect</span>
+                                    <span class="text-slate-600">→</span>
+                                    <span>File I/O</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-[#111322] border border-borderline rounded-xl p-6 relative overflow-hidden group">
+                                <div class="absolute top-0 left-0 w-full h-1 bg-green-500/40 group-hover:bg-green-500 transition-colors duration-300"></div>
+                                <div class="text-3xl mb-4">⚙️</div>
+                                <h4 class="text-md font-semibold text-slate-200 mb-2">Optimization Workflow</h4>
+                                <p class="text-xs text-slate-400 mb-5 leading-relaxed">Improving a prompt. The Expert Prompt Engineer analyzes logic, fixes ambiguity, and refines instructions to SOTA quality.</p>
+                                <div class="flex items-center space-x-3 text-[11px] font-mono font-medium text-green-400 bg-green-400/5 px-3 py-2 rounded-lg border border-green-500/10">
+                                    <span>Base Prompt</span>
+                                    <span class="text-slate-600">→</span>
+                                    <span>Engineer</span>
+                                    <span class="text-slate-600">→</span>
+                                    <span>SOTA</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="code-viewer" class="hidden h-full w-full">
+                        <pre><code id="prompt-content" class="font-mono text-sm text-slate-300 leading-relaxed whitespace-pre-wrap"></code></pre>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

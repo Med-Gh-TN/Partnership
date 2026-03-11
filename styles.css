@@ -1,0 +1,62 @@
+/* ==========================================================================
+   styles.css - Neon Nexus Engine (Tailwind Supplement)
+   ========================================================================== */
+
+/* --- Custom Dashboard Scrollbars --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111322; /* Matches our Tailwind bg-base */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #282b45; /* Matches our Tailwind border-borderline */
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6; /* Tailwind accent-blue */
+}
+
+/* --- Code Block Specific Scrollbars --- */
+pre::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- AI Pipeline Hardware Accelerated Animations --- */
+@keyframes neon-pulse {
+    0%, 100% { 
+        opacity: 1; 
+        text-shadow: 0 0 12px rgba(168, 85, 247, 0.8); 
+        transform: scale(1.05);
+    }
+    50% { 
+        opacity: 0.5; 
+        text-shadow: none; 
+        transform: scale(1);
+    }
+}
+
+/* We will apply this class via JavaScript during the fetch sequence */
+.pipeline-active {
+    animation: neon-pulse 1.5s infinite ease-in-out;
+    color: #a855f7 !important; /* Tailwind accent-purple */
+}
