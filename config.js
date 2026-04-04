@@ -19,6 +19,6 @@ const PROMPT_CONFIG = [
     { 
         id: '4', 
         title: 'Skills Agent', 
-        file: 'skill.txt' 
+        file: 'skills.txt' 
     }
 ];
