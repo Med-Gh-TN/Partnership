@@ -15,5 +15,10 @@ const PROMPT_CONFIG = [
         id: '3', 
         title: 'Full-Stack Architect', 
         file: 'architect.txt' 
+    },
+    { 
+        id: '4', 
+        title: 'Skills Agent', 
+        file: 'skill.txt' 
     }
 ];
