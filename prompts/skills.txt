@@ -333,3 +333,22 @@ knowledge layers without forward-referencing undefined concepts.*
 > `<DEPTH_LEVEL>` level. All pillars are covered by Tier 1 or Tier 2 resources."
 
 ---
+
+### 🚀 Final Copy-Paste Payload
+
+```text
+## REQUIRED RESOURCES TO INGEST
+Please review and ingest the following resources prior to executing the task:
+
+1. [R1 Title]: [Access Protocol / URL]
+2. [R2 Title]: [Access Protocol / URL]
+3. [R3 Title]: [Access Protocol / URL]
+[...continue for all resources...]
+
+## OPERATIONAL DIRECTIVES (ACTIVATION INSTRUCTIONS)
+[Paste R1 Activation Phrase]
+
+[Paste R2 Activation Phrase]
+
+[Paste R3 Activation Phrase]
+[...continue for all resources...]
