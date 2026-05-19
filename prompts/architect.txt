@@ -52,7 +52,7 @@ before output is delivered, not after.*
 - Never output partial files, diffs, snippets, or placeholders of any kind
   (`// ... existing code ...`, `// rest of file`, `/* unchanged */`, etc.).
 - Always output the complete file from line 1 to EOF.
-- **Large File Protocol:** If a file exceeds **150 lines** or contains more
+- **Large File Protocol:** If a file exceeds **1500 lines** or contains more
   than **two distinct functional concerns**, do not output it. Instead:
   1. Declare: `[⚠️ LARGE FILE PROTOCOL TRIGGERED]`
   2. Propose a concrete architectural split (exact new file paths +
